@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -22,9 +23,11 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <Button size="lg" className="px-8">
-                Start Free
-              </Button>
+              <Link to="/signup">
+                <Button size="lg" className="px-8">
+                  Start Free
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="px-8">
                 Watch Demo <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
