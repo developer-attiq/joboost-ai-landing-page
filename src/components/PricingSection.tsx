@@ -45,7 +45,7 @@ const plans = [
       "API access",
       "Dedicated support"
     ],
-    buttonText: "Contact Sales",
+    buttonText: "Buy Now",
     highlighted: false
   }
 ];
