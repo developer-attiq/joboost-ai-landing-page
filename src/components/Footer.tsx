@@ -53,9 +53,9 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-sm font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
+              <li><Link to="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</Link></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-primary">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary">Terms of Service</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary">Cookie Policy</a></li>
+              <li><Link to="/cookie-policy" className="text-sm text-muted-foreground hover:text-primary">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>
