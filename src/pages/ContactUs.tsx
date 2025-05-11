@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Mail, Phone, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -96,14 +96,6 @@ const ContactUs = () => {
                 <div>
                   <h4 className="font-medium">Email</h4>
                   <p className="text-muted-foreground mt-1">support@joboost.ai</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 mt-1 text-primary" />
-                <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <p className="text-muted-foreground mt-1">+1 (555) 123-4567</p>
                 </div>
               </div>
               
