@@ -1,11 +1,8 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
 const AboutUs = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow container py-12 md:py-20">
         <div className="max-w-4xl mx-auto">
@@ -61,22 +58,8 @@ const AboutUs = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="h-16 w-16 bg-gray-200 rounded-full mb-4"></div>
-                <h4 className="text-lg font-semibold">Sarah Johnson</h4>
-                <p className="text-sm text-muted-foreground mb-2">CEO & Co-founder</p>
-                <p className="text-sm">
-                  Former tech recruiter with 10+ years of experience helping companies find top talent.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="h-16 w-16 bg-gray-200 rounded-full mb-4"></div>
-                <h4 className="text-lg font-semibold">Michael Chen</h4>
-                <p className="text-sm text-muted-foreground mb-2">CTO & Co-founder</p>
-                <p className="text-sm">
-                  AI specialist with a background in natural language processing and machine learning.
-                </p>
-              </div>
+              
+              
             </div>
             
             <h2 className="text-2xl font-semibold mt-8 mb-4">Get in Touch</h2>
@@ -88,8 +71,6 @@ const AboutUs = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
