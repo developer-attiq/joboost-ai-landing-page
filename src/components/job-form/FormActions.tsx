@@ -1,0 +1,36 @@
+
+import React from 'react';
+import { Button } from '@/components/ui/button';
+
+interface FormActionsProps {
+  onCancel: () => void;
+  isSubmitting: boolean;
+  isEditing: boolean;
+}
+
+export const FormActions: React.FC<FormActionsProps> = ({ 
+  onCancel, 
+  isSubmitting, 
+  isEditing 
+}) => {
+  return (
+    <div className="flex justify-end space-x-2 pt-4">
+      <Button 
+        type="button" 
+        variant="outline" 
+        onClick={onCancel}
+        disabled={isSubmitting}
+      >
+        Cancel
+      </Button>
+      <Button 
+        type="submit"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? 
+          <><div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></div> Saving...</> : 
+          (isEditing ? 'Update' : 'Add')}
+      </Button>
+    </div>
+  );
+};
