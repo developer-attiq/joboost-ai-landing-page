@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,18 +13,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Label } from '@/components/ui/label';
-import { JobStatus } from '@/pages/Dashboard';
-
-interface JobApplication {
-  id: string;
-  job_title: string;
-  company: string;
-  job_link: string | null;
-  status: JobStatus;
-  notes: string | null;
-  created_at: string;
-  updated_at: string;
-}
+import { JobApplication, JobStatus } from '@/types/job-types';
 
 interface JobApplicationFormProps {
   job: JobApplication | null;
@@ -56,6 +44,13 @@ const JobApplicationForm = ({ job, onSave, onCancel }: JobApplicationFormProps) 
     setFormData({
       ...formData,
       status: value as JobStatus,
+    });
+  };
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
