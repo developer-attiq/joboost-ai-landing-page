@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Pencil, Trash2, ExternalLink } from 'lucide-react';
@@ -37,12 +36,14 @@ import Footer from '@/components/Footer';
 import JobApplicationForm from '@/components/JobApplicationForm';
 import { Badge } from '@/components/ui/badge';
 
-interface JobApplication {
+export type JobStatus = 'Wishlist' | 'Applied' | 'Interview' | 'Rejected' | 'Offer';
+
+export interface JobApplication {
   id: string;
   job_title: string;
   company: string;
   job_link: string | null;
-  status: 'Wishlist' | 'Applied' | 'Interview' | 'Rejected' | 'Offer';
+  status: JobStatus;
   notes: string | null;
   created_at: string;
   updated_at: string;
@@ -78,7 +79,11 @@ const Dashboard = () => {
         throw error;
       }
 
-      setJobApplications(data || []);
+      // Cast the status to JobStatus type since we know the database enforces valid values
+      setJobApplications((data || []).map(job => ({
+        ...job,
+        status: job.status as JobStatus
+      })));
     } catch (error: any) {
       toast.error('Error fetching job applications: ' + error.message);
     } finally {
@@ -118,7 +123,7 @@ const Dashboard = () => {
     setDeleteDialogOpen(true);
   };
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status: JobStatus) => {
     const statusStyles = {
       'Wishlist': 'bg-blue-100 text-blue-800 hover:bg-blue-100',
       'Applied': 'bg-purple-100 text-purple-800 hover:bg-purple-100',
@@ -128,7 +133,7 @@ const Dashboard = () => {
     };
     
     return (
-      <Badge className={statusStyles[status as keyof typeof statusStyles] || ''} variant="outline">
+      <Badge className={statusStyles[status] || ''} variant="outline">
         {status}
       </Badge>
     );

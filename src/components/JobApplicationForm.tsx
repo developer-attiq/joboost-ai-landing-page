@@ -14,13 +14,14 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Label } from '@/components/ui/label';
+import { JobStatus } from '@/pages/Dashboard';
 
 interface JobApplication {
   id: string;
   job_title: string;
   company: string;
   job_link: string | null;
-  status: string;
+  status: JobStatus;
   notes: string | null;
   created_at: string;
   updated_at: string;
@@ -40,7 +41,7 @@ const JobApplicationForm = ({ job, onSave, onCancel }: JobApplicationFormProps) 
     job_title: job?.job_title || '',
     company: job?.company || '',
     job_link: job?.job_link || '',
-    status: job?.status || 'Wishlist',
+    status: job?.status || 'Wishlist' as JobStatus,
     notes: job?.notes || '',
   });
 
@@ -54,7 +55,7 @@ const JobApplicationForm = ({ job, onSave, onCancel }: JobApplicationFormProps) 
   const handleStatusChange = (value: string) => {
     setFormData({
       ...formData,
-      status: value,
+      status: value as JobStatus,
     });
   };
 
